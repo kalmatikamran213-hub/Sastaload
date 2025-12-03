@@ -5,7 +5,10 @@ import { QuoteRequest, QuoteResult } from "../types";
 // In some client-side environments, accessing process.env might throw a ReferenceError.
 let apiKey = '';
 try {
-  apiKey = process.env.API_KEY || '';
+  // Check if process is defined before accessing env
+  if (typeof process !== 'undefined' && process.env) {
+    apiKey = process.env.API_KEY || '';
+  }
 } catch (e) {
   console.warn("API Key environment variable not accessible.");
 }
