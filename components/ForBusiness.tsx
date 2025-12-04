@@ -8,8 +8,18 @@ interface ForBusinessProps {
 }
 
 const brands = [
-  "Unilever", "Nestlé", "Dawlance", "Haier", "PepsiCo", 
-  "Daraz", "Foodpanda", "Engro", "Shan Foods", "Packages", "Coca-Cola", "Servis"
+  { name: "Unilever", color: "text-blue-600" },
+  { name: "Nestlé", color: "text-amber-700" },
+  { name: "Dawlance", color: "text-red-600" },
+  { name: "Haier", color: "text-blue-500" },
+  { name: "PepsiCo", color: "text-blue-700" },
+  { name: "Daraz", color: "text-orange-500" },
+  { name: "Foodpanda", color: "text-pink-600" },
+  { name: "Engro", color: "text-green-600" },
+  { name: "Shan Foods", color: "text-red-700" },
+  { name: "Packages", color: "text-red-600" },
+  { name: "Coca-Cola", color: "text-red-600" },
+  { name: "Servis", color: "text-blue-800" }
 ];
 
 const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
@@ -34,7 +44,7 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
     };
 
     return (
-        <section id="business" className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden">
+        <section id="business" className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden reveal-on-scroll">
             {/* Subtle Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px]"></div>
             
@@ -47,7 +57,7 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
                     
                     {/* Left Column: Content */}
                     <div className="text-center lg:text-left">
-                        <div className="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm px-4 py-1.5 rounded-full mb-8 reveal-on-scroll">
+                        <div className="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm px-4 py-1.5 rounded-full mb-8">
                              <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
@@ -55,16 +65,16 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
                             <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">Enterprise Solutions</span>
                         </div>
                         
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6 reveal-on-scroll reveal-delay-100">
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
                             Logistics that <br className="hidden lg:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-600">scales with you.</span>
                         </h2>
 
-                        <p className="text-lg text-slate-600 mb-8 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0 reveal-on-scroll reveal-delay-200">
+                        <p className="text-lg text-slate-600 mb-8 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0">
                             Stop managing spreadsheets. Get a dedicated control tower for your supply chain with automated GST invoicing, real-time analytics, and 100% verified fleets.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start reveal-on-scroll reveal-delay-300">
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <button 
                                 onClick={() => setIsRegisterOpen(true)}
                                 className="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/20 hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-2"
@@ -82,7 +92,7 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
                         </div>
 
                         {/* Stats Row */}
-                        <div className="mt-12 pt-8 border-t border-slate-200/60 grid grid-cols-3 gap-6 reveal-on-scroll reveal-delay-300">
+                        <div className="mt-12 pt-8 border-t border-slate-200/60 grid grid-cols-3 gap-6">
                             <div>
                                 <p className="text-3xl font-extrabold text-slate-900 tracking-tight">30%</p>
                                 <p className="text-xs font-bold text-slate-500 uppercase tracking-wide mt-1">Cost Savings</p>
@@ -102,7 +112,7 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
                         <div className="space-y-5">
                             {/* Card 1 */}
-                            <div className="bg-white p-6 lg:p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-2 group reveal-on-scroll">
+                            <div className="bg-white p-6 lg:p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-2 group">
                                 <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <FileText size={28} className="text-blue-600" />
                                 </div>
@@ -113,7 +123,7 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
                             </div>
 
                             {/* Card 2 */}
-                             <div className="bg-white p-6 lg:p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 hover:-translate-y-2 group reveal-on-scroll reveal-delay-100">
+                             <div className="bg-white p-6 lg:p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 hover:-translate-y-2 group">
                                 <div className="w-14 h-14 bg-purple-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <PieChart size={28} className="text-purple-600" />
                                 </div>
@@ -126,7 +136,7 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
 
                         <div className="space-y-5 sm:mt-12">
                             {/* Card 3 */}
-                             <div className="bg-white p-6 lg:p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 hover:-translate-y-2 group reveal-on-scroll reveal-delay-200">
+                             <div className="bg-white p-6 lg:p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 hover:-translate-y-2 group">
                                 <div className="w-14 h-14 bg-brand/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <Globe size={28} className="text-brand-dark" />
                                 </div>
@@ -137,7 +147,7 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
                             </div>
 
                              {/* Card 4 */}
-                             <div className="bg-white p-6 lg:p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-2 group reveal-on-scroll reveal-delay-300">
+                             <div className="bg-white p-6 lg:p-8 rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 hover:-translate-y-2 group">
                                 <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                                     <ShieldCheck size={28} className="text-orange-600" />
                                 </div>
@@ -150,18 +160,20 @@ const ForBusiness: React.FC<ForBusinessProps> = ({ onNavigate }) => {
                     </div>
                 </div>
 
-                {/* Trusted By Strip */}
-                <div className="mt-20 lg:mt-32 relative reveal-on-scroll">
-                    <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest mb-10">Trusted by over 500+ supply chains</p>
+                {/* Trusted By Strip - Improved Design */}
+                <div className="mt-20 lg:mt-32 relative pt-12">
+                    <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest mb-10">Trusted by Pakistan's Leading Supply Chains</p>
                     
-                    <div className="relative w-full overflow-hidden before:absolute before:left-0 before:top-0 before:bottom-0 before:w-16 lg:before:w-32 before:bg-gradient-to-r before:from-slate-50 before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:bottom-0 after:w-16 lg:after:w-32 after:bg-gradient-to-l after:from-slate-50 after:to-transparent after:z-10">
-                        <div className="flex animate-scroll whitespace-nowrap gap-16 lg:gap-24 items-center w-max hover:[animation-play-state:paused]">
+                    <div className="relative w-full overflow-hidden">
+                        <div className="flex animate-scroll whitespace-nowrap items-center w-max hover:[animation-play-state:paused] py-4">
                             {[...brands, ...brands].map((brand, i) => (
-                                <div key={i} className="flex items-center gap-4 opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer group/item grayscale hover:grayscale-0">
-                                    <div className="w-10 h-10 bg-slate-200 group-hover/item:bg-slate-900 rounded-xl flex items-center justify-center text-slate-500 group-hover/item:text-brand font-black text-lg shadow-sm transition-colors">
-                                        {brand.charAt(0)}
+                                <div key={i} className="flex items-center gap-3 px-8 lg:px-12 group/item cursor-default opacity-60 hover:opacity-100 transition-opacity duration-300">
+                                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-slate-200 group-hover/item:bg-brand flex items-center justify-center text-slate-500 group-hover/item:text-slate-900 font-black text-lg lg:text-xl transition-all duration-300 shadow-sm">
+                                        {brand.name.charAt(0)}
                                     </div>
-                                    <span className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight uppercase">{brand}</span>
+                                    <span className={`text-2xl lg:text-3xl font-black text-slate-300 group-hover/item:text-slate-900 transition-colors duration-300 tracking-tighter uppercase select-none ${brand.color ? `group-hover/item:${brand.color}` : ''}`}>
+                                        {brand.name}
+                                    </span>
                                 </div>
                             ))}
                         </div>

@@ -2,12 +2,107 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SastaLoad - Book Trucks Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#B3F000" />
+    
+    <!-- Primary SEO -->
+    <title>SastaLoad - Online Truck Booking & Logistics Platform Pakistan</title>
+    <meta name="title" content="SastaLoad - Online Truck Booking & Logistics Platform Pakistan" />
+    <meta name="description" content="Book verified trucks online in Pakistan with SastaLoad. Connect directly with drivers, get wholesale rates, and track shipments in real-time. Save up to 20% on freight costs." />
+    <meta name="keywords" content="truck booking pakistan, online logistics company, goods transport agency, shehzore for rent, mazda truck rates, freight forwarding pakistan, sastaload, supply chain management, cargo services karachi to lahore" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="SastaLoad Technologies" />
+
+    <!-- Local SEO -->
+    <meta name="geo.region" content="PK" />
+    <meta name="geo.placename" content="Karachi" />
+    <meta name="geo.position" content="24.8607;67.0011" />
+    <meta name="ICBM" content="24.8607, 67.0011" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.sastaload.com/" />
+    <meta property="og:title" content="SastaLoad - Direct-to-Driver Logistics Platform" />
+    <meta property="og:description" content="Book trucks online in Pakistan instantly. Eliminate middlemen, get wholesale rates, and track your cargo in real-time." />
+    <meta property="og:image" content="https://www.sastaload.com/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.sastaload.com/" />
+    <meta property="twitter:title" content="SastaLoad - Smart Logistics for Pakistan" />
+    <meta property="twitter:description" content="The smartest way to move goods in Pakistan. Connect with 15,000+ verified drivers." />
+    <meta property="twitter:image" content="https://www.sastaload.com/twitter-image.jpg" />
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="canonical" href="https://www.sastaload.com/" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "SastaLoad",
+      "alternateName": "SastaLoad Logistics",
+      "url": "https://www.sastaload.com",
+      "logo": "https://www.sastaload.com/logo.png",
+      "description": "Pakistan's premier digital logistics platform connecting business shippers directly with verified truck drivers.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Office #212, 2nd Floor, Business Avenue",
+        "addressLocality": "Karachi",
+        "addressRegion": "Sindh",
+        "postalCode": "75400",
+        "addressCountry": "PK"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+92-336-3391378",
+        "contactType": "customer service",
+        "areaServed": "PK",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://www.facebook.com/sastaload",
+        "https://www.instagram.com/sastaload",
+        "https://www.linkedin.com/company/sastaload"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Freight Transport",
+      "provider": {
+        "@type": "Organization",
+        "name": "SastaLoad"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Pakistan"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "15420"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "PKR",
+        "description": "Competitive wholesale freight rates for full truckload and partial loads."
+      }
+    }
+    </script>
+    
     <script>
       tailwind.config = {
         theme: {
@@ -56,22 +151,40 @@
           scrollbar-width: none;
       }
 
-      /* Scroll Reveal Animation Classes */
+      /* Scroll Reveal Animations */
       .reveal-on-scroll {
         opacity: 0;
         transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        transition: opacity 1s ease-out, transform 1s cubic-bezier(0.5, 0, 0, 1);
         will-change: opacity, transform;
       }
+      
       .reveal-on-scroll.is-visible {
         opacity: 1;
         transform: translateY(0);
       }
+
+      /* Helper animations for Hero components */
+      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+      @keyframes slideRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+      @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+      .animate-in { animation-fill-mode: both; }
+      .fade-in { animation-name: fadeIn; }
+      .slide-in-from-bottom-4, .slide-in-from-bottom-6 { animation-name: slideUp; }
+      .slide-in-from-right-8 { animation-name: slideRight; }
+      .zoom-in, .zoom-in-95 { animation-name: zoomIn; }
+
+      .delay-100 { animation-delay: 100ms; }
+      .delay-200 { animation-delay: 200ms; }
+      .delay-300 { animation-delay: 300ms; }
+      .delay-500 { animation-delay: 500ms; }
       
-      /* Staggered delays */
-      .reveal-delay-100 { transition-delay: 100ms; }
-      .reveal-delay-200 { transition-delay: 200ms; }
-      .reveal-delay-300 { transition-delay: 300ms; }
+      .duration-300 { animation-duration: 300ms; }
+      .duration-500 { animation-duration: 500ms; }
+      .duration-700 { animation-duration: 700ms; }
+      .duration-1000 { animation-duration: 1000ms; }
     </style>
   <script type="importmap">
 {

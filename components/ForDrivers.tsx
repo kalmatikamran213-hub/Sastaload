@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Truck, CheckCircle, X, User, Phone, FileText, Loader2, ShieldCheck, ChevronRight, MapPin, Info, Upload, Image } from 'lucide-react';
+import { Truck, CheckCircle, X, User, Phone, FileText, Loader2, ShieldCheck, ChevronRight, MapPin, Info } from 'lucide-react';
 import { ForDriversProps } from '../types';
 import { saveSubmission, STORAGE_KEYS } from '../services/storageService';
 
@@ -42,7 +42,7 @@ const ForDrivers: React.FC<ForDriversProps> = ({ onOpenWaitlist, onNavigate }) =
     };
 
     return (
-        <section id="drivers" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <section id="drivers" className="py-16 lg:py-24 bg-white relative overflow-hidden reveal-on-scroll">
              {/* Decorative Elements */}
              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
              <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-slate-100/50 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
@@ -51,7 +51,7 @@ const ForDrivers: React.FC<ForDriversProps> = ({ onOpenWaitlist, onNavigate }) =
                 <div className="grid lg:grid-cols-2 gap-16 items-start">
                     {/* Left Side: Content */}
                     <div className="text-left">
-                        <div className="inline-flex items-center gap-2 bg-slate-900 px-4 py-1.5 rounded-full mb-8 shadow-lg shadow-slate-900/20 reveal-on-scroll">
+                        <div className="inline-flex items-center gap-2 bg-slate-900 px-4 py-1.5 rounded-full mb-8 shadow-lg shadow-slate-900/20 animate-in fade-in slide-in-from-bottom-4 duration-500">
                             <span className="relative flex h-2.5 w-2.5">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand"></span>
@@ -59,7 +59,7 @@ const ForDrivers: React.FC<ForDriversProps> = ({ onOpenWaitlist, onNavigate }) =
                             <span className="text-xs font-bold text-white uppercase tracking-wider">For Captains & Fleet Owners</span>
                         </div>
                         
-                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.1] reveal-on-scroll reveal-delay-100">
+                        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-8 tracking-tight leading-[1.1]">
                             Your Truck. Your Rules. <br className="hidden md:block" />
                             <span className="relative inline-block mt-2">
                                 <span className="relative z-10">Unlimited Earnings.</span>
@@ -67,11 +67,11 @@ const ForDrivers: React.FC<ForDriversProps> = ({ onOpenWaitlist, onNavigate }) =
                             </span>
                         </h2>
                         
-                        <p className="text-lg sm:text-xl text-slate-500 mb-10 leading-relaxed font-medium max-w-xl reveal-on-scroll reveal-delay-200">
+                        <p className="text-lg sm:text-xl text-slate-500 mb-10 leading-relaxed font-medium max-w-xl">
                             Join Pakistan's fastest growing digital transport network. Stop chasing agents for loads—let the loads come to you.
                         </p>
 
-                         <div className="flex flex-col sm:flex-row gap-4 reveal-on-scroll reveal-delay-300">
+                         <div className="flex flex-col sm:flex-row gap-4">
                             <button 
                                 onClick={() => setIsRegisterOpen(true)}
                                 className="bg-slate-900 text-white hover:bg-slate-800 px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-slate-900/20 flex items-center justify-center gap-2 hover:-translate-y-1"
@@ -91,7 +91,7 @@ const ForDrivers: React.FC<ForDriversProps> = ({ onOpenWaitlist, onNavigate }) =
                     {/* Right Side: Benefits */}
                     <div className="grid gap-6">
                         {benefits.map((benefit, idx) => (
-                            <div key={idx} className="bg-slate-50 p-6 lg:p-8 rounded-[32px] border border-slate-100 text-left hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden flex items-start gap-6 reveal-on-scroll" style={{ transitionDelay: `${idx * 150}ms` }}>
+                            <div key={idx} className="bg-slate-50 p-6 lg:p-8 rounded-[32px] border border-slate-100 text-left hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden flex items-start gap-6">
                                 <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm group-hover:bg-brand group-hover:border-brand transition-all duration-300 relative z-10">
                                     <CheckCircle className="w-6 h-6 text-slate-900" />
                                 </div>

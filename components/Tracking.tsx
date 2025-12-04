@@ -52,7 +52,16 @@ const Tracking: React.FC = () => {
 
   // Initialize Map
   useEffect(() => {
-    if (result && mapRef.current && !mapInstanceRef.current && typeof L !== 'undefined') {
+    // Only proceed if result exists, map container exists, and Leaflet is loaded
+    if (!result || !mapRef.current || typeof L === 'undefined') return;
+
+    // Cleanup existing map instance to prevent "Map container is already initialized" error
+    if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+    }
+
+    try {
         // Initialize Map centered on current location
         const map = L.map(mapRef.current).setView(result.coords.current, 6);
         mapInstanceRef.current = map;
@@ -82,7 +91,7 @@ const Tracking: React.FC = () => {
         // Add Markers
         L.marker(result.coords.origin, { icon: pinIcon }).addTo(map).bindPopup("Origin: Lahore");
         L.marker(result.coords.destination, { icon: pinIcon }).addTo(map).bindPopup("Destination: Karachi");
-        const truckMarker = L.marker(result.coords.current, { icon: truckIcon }).addTo(map).bindPopup("Current Location: Sukkur").openPopup();
+        L.marker(result.coords.current, { icon: truckIcon }).addTo(map).bindPopup("Current Location: Sukkur").openPopup();
 
         // Draw Route (Polyline)
         const latlngs = [
@@ -91,17 +100,20 @@ const Tracking: React.FC = () => {
             result.coords.destination
         ];
         
-        // Dashed line for remaining, Solid for completed could be done by splitting, but simple polyline for now
+        // Polyline segments
         L.polyline([result.coords.origin, result.coords.current], { color: '#B3F000', weight: 4 }).addTo(map);
         L.polyline([result.coords.current, result.coords.destination], { color: '#94a3b8', weight: 3, dashArray: '10, 10' }).addTo(map);
 
         // Fit bounds to show full route
         map.fitBounds(L.latLngBounds(latlngs), { padding: [50, 50] });
+
+    } catch (err) {
+        console.error("Map initialization failed:", err);
     }
 
-    // Cleanup
+    // Cleanup on unmount or re-run
     return () => {
-        if (!result && mapInstanceRef.current) {
+        if (mapInstanceRef.current) {
             mapInstanceRef.current.remove();
             mapInstanceRef.current = null;
         }

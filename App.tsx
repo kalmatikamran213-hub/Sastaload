@@ -26,37 +26,60 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
+  // SEO Optimized Dynamic Title Management
+  useEffect(() => {
+    switch (currentPage) {
+        case 'home': 
+            document.title = "SastaLoad - Online Truck Booking & Logistics Platform Pakistan"; 
+            break;
+        case 'about': 
+            document.title = "About SastaLoad | Best Logistics Company in Pakistan"; 
+            break;
+        case 'contact': 
+            document.title = "Contact SastaLoad Support | 24/7 Logistics Help"; 
+            break;
+        case 'login': 
+            document.title = "Login to SastaLoad | Shipper & Driver Portal"; 
+            break;
+        case 'signup': 
+            document.title = "Register | Join Pakistan's Largest Trucking Network"; 
+            break;
+        case 'trust': 
+            document.title = "Trust & Safety | Insured Freight Services"; 
+            break;
+        case 'terms': 
+            document.title = "Terms of Service | SastaLoad Logistics"; 
+            break;
+        case 'privacy': 
+            document.title = "Privacy Policy | Data Protection"; 
+            break;
+        case 'admin':
+            document.title = "Admin Portal | SastaLoad";
+            break;
+        default: 
+            document.title = "SastaLoad - Book Verified Trucks Online";
+    }
+  }, [currentPage]);
+
   // Ensure scroll to top whenever page changes
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   }, [currentPage]);
 
-  // Handle Scroll Animations
+  // Scroll Reveal Observer
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target); // Only animate once
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    // Small delay to ensure DOM is ready
-    setTimeout(() => {
-      const elements = document.querySelectorAll('.reveal-on-scroll');
-      elements.forEach(el => observer.observe(el));
-    }, 100);
+    const elements = document.querySelectorAll('.reveal-on-scroll');
+    elements.forEach(el => observer.observe(el));
 
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, [currentPage]);
 
   const handleNavigate = (page: Page) => {
@@ -70,7 +93,7 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-brand selection:text-slate-900">
       <Header onNavigate={handleNavigate} currentPage={currentPage} onOpenWaitlist={handleOpenWaitlist} />
-      <main>
+      <main role="main">
         {currentPage === 'home' && (
           <>
             <Hero onOpenWaitlist={handleOpenWaitlist} />
@@ -112,7 +135,7 @@ function App() {
       </main>
       
       {/* Footer is typically hidden on login/signup in many apps, but keeping it here for consistency or simple navigation */}
-      {currentPage !== 'login' && currentPage !== 'signup' && (
+      {currentPage !== 'login' && currentPage !== 'signup' && currentPage !== 'admin' && (
          <Footer onNavigate={handleNavigate} currentPage={currentPage} onOpenWaitlist={handleOpenWaitlist} />
       )}
       

@@ -52,12 +52,12 @@ const Process: React.FC = () => {
     };
 
     return (
-        <section id="process" className="py-16 lg:py-24 bg-white relative overflow-hidden">
+        <section id="process" className="py-16 lg:py-24 bg-white relative overflow-hidden reveal-on-scroll">
             {/* Background Decor */}
             <div className="absolute top-1/2 left-0 w-full h-[300px] -translate-y-1/2 bg-gradient-to-r from-transparent via-slate-50 to-transparent -z-10 opacity-60 transform -skew-y-3"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16 reveal-on-scroll">
+                <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
                     <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-6">Simple, Transparent Logistics</h2>
                     
                     {/* Toggle Switch */}
@@ -88,7 +88,7 @@ const Process: React.FC = () => {
 
                     <div className="grid md:grid-cols-3 gap-10 lg:gap-12">
                         {processes[activeType].map((step, idx) => (
-                            <div key={idx} className="relative flex flex-col items-center text-center group reveal-on-scroll" style={{ transitionDelay: `${idx * 150}ms` }}>
+                            <div key={idx} className="relative flex flex-col items-center text-center group">
                                 {/* Step Number Badge */}
                                 <div className="absolute top-0 right-[calc(50%-32px)] md:right-[calc(50%-40px)] w-8 h-8 rounded-full bg-slate-900 text-brand text-xs font-bold flex items-center justify-center border-4 border-white z-20">
                                     {idx + 1}
@@ -112,7 +112,7 @@ const Process: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="mt-12 lg:mt-16 text-center reveal-on-scroll reveal-delay-300">
+                <div className="mt-12 lg:mt-16 text-center">
                     <button 
                         onClick={handleAction}
                         className="inline-flex items-center gap-2 text-slate-900 font-bold hover:gap-3 transition-all cursor-pointer"

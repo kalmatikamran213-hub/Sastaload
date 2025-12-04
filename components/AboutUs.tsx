@@ -6,7 +6,7 @@ const AboutUs: React.FC = () => {
     <div className="animate-in fade-in duration-700 bg-white font-sans text-slate-900 selection:bg-brand selection:text-slate-900">
       
       {/* 1. Hero Section - Typography Focused */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-white overflow-hidden text-left">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-white overflow-hidden text-left reveal-on-scroll">
          <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-60"></div>
          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
          
@@ -14,7 +14,7 @@ const AboutUs: React.FC = () => {
             <div className="max-w-5xl">
                 <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 shadow-sm px-4 py-1.5 rounded-full mb-8">
                     <span className="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
-                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Est. 2024</span>
+                    <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Since 2024</span>
                 </div>
                 
                 <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-slate-900 tracking-tight leading-[1] mb-10">
@@ -25,14 +25,14 @@ const AboutUs: React.FC = () => {
                 </h1>
                 
                 <p className="text-xl sm:text-2xl text-slate-500 max-w-3xl leading-relaxed font-medium">
-                   SastaLoad is building the digital infrastructure for modern logistics. We connect shippers and carriers directly, creating a transparent, efficient supply chain for everyone.
+                   SastaLoad is building the digital infrastructure for modern logistics. We connect shippers and carriers directly, creating a transparent, efficient supply chain for goods transport across Pakistan.
                 </p>
             </div>
          </div>
       </section>
 
       {/* 2. Narrative Section (Text Only) */}
-      <section className="py-24 lg:py-32 bg-white border-t border-slate-100">
+      <article className="py-24 lg:py-32 bg-white border-t border-slate-100 reveal-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid lg:grid-cols-12 gap-16">
                   <div className="lg:col-span-4">
@@ -48,25 +48,25 @@ const AboutUs: React.FC = () => {
                       
                       <div className="grid sm:grid-cols-2 gap-8 pt-8">
                           <div className="space-y-4">
-                              <h3 className="text-lg font-bold text-slate-900">The Problem</h3>
+                              <h3 className="text-lg font-bold text-slate-900">The Logistics Challenge</h3>
                               <p className="text-slate-500 leading-relaxed font-medium">
                                   Shipping goods in Pakistan has historically been fragmented and opaque. Hidden fees, unreliable timelines, and a lack of trust were the norm, hurting both businesses and truck drivers.
                               </p>
                           </div>
                           <div className="space-y-4">
-                              <h3 className="text-lg font-bold text-slate-900">The Solution</h3>
+                              <h3 className="text-lg font-bold text-slate-900">Digital Freight Solution</h3>
                               <p className="text-slate-500 leading-relaxed font-medium">
-                                  By digitizing the booking process, we give fleet owners direct access to market demand. Simultaneously, we provide shippers with the visibility and control they need to scale.
+                                  By digitizing the freight booking process, we give fleet owners direct access to market demand. Simultaneously, we provide shippers with the visibility and control they need to scale their supply chain operations.
                               </p>
                           </div>
                       </div>
                   </div>
               </div>
           </div>
-      </section>
+      </article>
 
       {/* 3. Values (Dark Grid) - Compact Version */}
-      <section className="py-16 lg:py-24 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-16 lg:py-24 bg-slate-900 text-white relative overflow-hidden reveal-on-scroll">
           {/* Background Decor */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
           
@@ -74,7 +74,7 @@ const AboutUs: React.FC = () => {
               <div className="max-w-3xl mb-12">
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">Our Core Values</h2>
                   <p className="text-lg text-slate-400 font-medium leading-relaxed">
-                      We are guided by principles that prioritize people over profit, transparency over secrecy, and innovation over tradition.
+                      We are guided by principles that prioritize people over profit, transparency over secrecy, and innovation over tradition in the freight industry.
                   </p>
               </div>
 
@@ -127,7 +127,7 @@ const AboutUs: React.FC = () => {
       </section>
 
       {/* 4. Locations (Text Grid) */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white reveal-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid lg:grid-cols-2 gap-16">
                   <div>
@@ -154,7 +154,7 @@ const AboutUs: React.FC = () => {
                                     <h3 className="text-xl font-bold text-slate-900">{loc.city}</h3>
                                     <p className="text--[10px] font-bold text-slate-400 uppercase tracking-wide bg-white px-2 py-1 rounded-md border border-slate-100">{loc.role}</p>
                                   </div>
-                                  <p className="text-slate-500 text-sm font-medium">{loc.address}</p>
+                                  <address className="text-slate-500 text-sm font-medium not-italic">{loc.address}</address>
                               </div>
                           </div>
                       ))}
@@ -164,7 +164,7 @@ const AboutUs: React.FC = () => {
       </section>
 
       {/* 5. Careers Section */}
-      <section id="careers" className="py-24 bg-slate-50 border-t border-slate-100">
+      <section id="careers" className="py-24 bg-slate-50 border-t border-slate-100 reveal-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
                   <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-6">Join our team</h2>
@@ -187,40 +187,12 @@ const AboutUs: React.FC = () => {
                            Apply Now
                        </a>
                    </div>
-                   
-                    {/* Job 2 */}
-                   <div className="bg-white p-6 rounded-2xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:border-brand transition-colors group cursor-pointer shadow-sm hover:shadow-md">
-                       <div>
-                           <h3 className="font-bold text-slate-900 text-xl group-hover:text-brand-dark transition-colors mb-2">Enterprise Sales Manager</h3>
-                           <div className="flex gap-4 text-sm text-slate-500 font-medium">
-                               <span className="flex items-center gap-1"><MapPin size={16} className="text-slate-400" /> Karachi, PK</span>
-                               <span className="flex items-center gap-1"><Briefcase size={16} className="text-slate-400" /> On-site</span>
-                           </div>
-                       </div>
-                       <a href="mailto:careers@sastaload.com?subject=Application for Enterprise Sales Manager" className="px-8 py-3 bg-slate-50 text-slate-900 font-bold rounded-xl group-hover:bg-slate-900 group-hover:text-white transition-colors text-sm border border-slate-200 group-hover:border-slate-900 text-center">
-                           Apply Now
-                       </a>
-                   </div>
-
-                    {/* Job 3 */}
-                   <div className="bg-white p-6 rounded-2xl border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:border-brand transition-colors group cursor-pointer shadow-sm hover:shadow-md">
-                       <div>
-                           <h3 className="font-bold text-slate-900 text-xl group-hover:text-brand-dark transition-colors mb-2">Customer Success Lead</h3>
-                           <div className="flex gap-4 text-sm text-slate-500 font-medium">
-                               <span className="flex items-center gap-1"><MapPin size={16} className="text-slate-400" /> Islamabad, PK</span>
-                               <span className="flex items-center gap-1"><Briefcase size={16} className="text-slate-400" /> Hybrid</span>
-                           </div>
-                       </div>
-                       <a href="mailto:careers@sastaload.com?subject=Application for Customer Success Lead" className="px-8 py-3 bg-slate-50 text-slate-900 font-bold rounded-xl group-hover:bg-slate-900 group-hover:text-white transition-colors text-sm border border-slate-200 group-hover:border-slate-900 text-center">
-                           Apply Now
-                       </a>
-                   </div>
                </div>
           </div>
       </section>
 
       {/* 6. CTA */}
-      <section className="py-20 bg-brand">
+      <section className="py-20 bg-brand reveal-on-scroll">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-8 tracking-tight leading-tight">
                   Ready to move with us?

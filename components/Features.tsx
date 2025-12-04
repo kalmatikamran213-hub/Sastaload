@@ -50,14 +50,14 @@ const Features: React.FC = () => {
   const displayedFeatures = showAll ? allFeatures : allFeatures.slice(0, 4);
 
   return (
-    <section id="features" className="py-16 lg:py-24 bg-[#F8F9FA] relative overflow-hidden">
+    <section id="features" className="py-16 lg:py-24 bg-[#F8F9FA] relative overflow-hidden reveal-on-scroll">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-20 gap-8 reveal-on-scroll">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 lg:mb-20 gap-8">
             <div className="max-w-3xl">
-                <div className="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm px-3 py-1 rounded-full mb-5">
+                <div className="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm px-3 py-1 rounded-full mb-5 animate-in fade-in slide-in-from-bottom-2 duration-500">
                      <span className="flex h-2 w-2 relative">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
@@ -89,16 +89,16 @@ const Features: React.FC = () => {
             </button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 animate-in fade-in duration-500">
           {displayedFeatures.map((feature, index) => (
             <div 
               key={index}
-              className="p-6 lg:p-8 rounded-[24px] lg:rounded-[32px] bg-white border border-slate-100 hover:border-brand hover:shadow-xl hover:shadow-brand/10 transition-all duration-300 group flex flex-col hover:-translate-y-1 reveal-on-scroll"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="p-6 lg:p-8 rounded-[24px] lg:rounded-[32px] bg-white border border-slate-100 hover:border-brand hover:shadow-xl hover:shadow-brand/10 transition-all duration-300 group animate-in zoom-in-50 fill-mode-both flex flex-col hover:-translate-y-1"
+              style={{ animationDelay: `${index * 50}ms` }}
             >
               <div className="w-14 h-14 lg:w-16 lg:h-16 bg-[#F3F3F3] rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand transition-colors duration-300 shadow-sm">
                 {React.cloneElement(feature.icon as React.ReactElement, {
-                    className: "w-7 h-7 text-slate-900 transition-transform duration-300 group-hover:animate-bounce"
+                    className: "w-7 h-7 text-slate-900 transition-transform duration-300 group-hover:scale-110"
                 })}
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>

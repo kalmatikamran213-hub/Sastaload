@@ -77,7 +77,7 @@ const Calculator: React.FC<SharedProps> = ({ onOpenWaitlist }) => {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Cargo */}
             <div className="relative group">
                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
@@ -105,25 +105,26 @@ const Calculator: React.FC<SharedProps> = ({ onOpenWaitlist }) => {
               </div>
               <input 
                 type="text" 
-                placeholder="Weight (kg or ton)" 
+                placeholder="Weight (tons)" 
                 className="w-full bg-[#F8F9FA] hover:bg-[#F3F3F3] focus:bg-white border border-transparent focus:border-slate-200 rounded-2xl py-3.5 pl-12 pr-4 text-slate-900 font-bold placeholder-slate-400 focus:ring-4 focus:ring-slate-100 transition-all outline-none text-base shadow-sm hover:shadow-md focus:shadow-lg"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
               />
             </div>
-          </div>
 
-           {/* Date */}
-           <div className="relative group">
-            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
-                <Calendar size={18} />
+            {/* Date */}
+            <div className="relative group col-span-2 lg:col-span-1">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+                  <Calendar size={18} />
+              </div>
+              <input 
+                type="date" 
+                min={new Date().toISOString().split('T')[0]}
+                className="w-full bg-[#F8F9FA] hover:bg-[#F3F3F3] focus:bg-white border border-transparent focus:border-slate-200 rounded-2xl py-3.5 pl-12 pr-4 text-slate-900 font-bold placeholder-slate-400 focus:ring-4 focus:ring-slate-100 transition-all outline-none text-base shadow-sm hover:shadow-md focus:shadow-lg"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
             </div>
-            <input 
-              type="date" 
-              className="w-full bg-[#F8F9FA] hover:bg-[#F3F3F3] focus:bg-white border border-transparent focus:border-slate-200 rounded-2xl py-3.5 pl-12 pr-4 text-slate-900 font-bold placeholder-slate-400 focus:ring-4 focus:ring-slate-100 transition-all outline-none text-base shadow-sm hover:shadow-md focus:shadow-lg"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
           </div>
 
           {error && (
