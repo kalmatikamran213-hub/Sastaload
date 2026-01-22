@@ -8,11 +8,16 @@
     <!-- Primary SEO -->
     <title>SastaLoad - Online Truck Booking & Logistics Platform Pakistan</title>
     <meta name="title" content="SastaLoad - Online Truck Booking & Logistics Platform Pakistan" />
-    <meta name="description" content="Book verified trucks online in Pakistan with SastaLoad. Connect directly with drivers, get wholesale rates, and track shipments in real-time. Save up to 20% on freight costs." />
-    <meta name="keywords" content="truck booking pakistan, online logistics company, goods transport agency, shehzore for rent, mazda truck rates, freight forwarding pakistan, sastaload, supply chain management, cargo services karachi to lahore" />
+    <meta name="description" content="Book verified trucks online in Pakistan with SastaLoad. Connect directly with drivers, get wholesale rates, and track shipments in real-time. Save up to 30% on freight costs." />
+    <meta name="keywords" content="truck booking pakistan, online logistics company, goods transport agency, shehzore for rent, mazda truck rates, freight forwarding pakistan, sastaload, supply chain management, cargo services karachi to lahore, fleet management pakistan" />
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="author" content="SastaLoad Technologies" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!-- Local SEO -->
     <meta name="geo.region" content="PK" />
@@ -34,7 +39,7 @@
     <meta property="twitter:description" content="The smartest way to move goods in Pakistan. Connect with 15,000+ verified drivers." />
     <meta property="twitter:image" content="https://www.sastaload.com/twitter-image.jpg" />
     
-    <!-- Preconnect for Performance -->
+    <!-- Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="canonical" href="https://www.sastaload.com/" />
@@ -80,16 +85,10 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Freight Transport",
-      "provider": {
-        "@type": "Organization",
-        "name": "SastaLoad"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Pakistan"
-      },
+      "@type": "SoftwareApplication",
+      "name": "SastaLoad App",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "BusinessApplication",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
@@ -97,9 +96,51 @@
       },
       "offers": {
         "@type": "Offer",
-        "priceCurrency": "PKR",
-        "description": "Competitive wholesale freight rates for full truckload and partial loads."
+        "price": "0",
+        "priceCurrency": "PKR"
       }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.sastaload.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.sastaload.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How is the shipping rate calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our AI-powered algorithm analyzes real-time market data, fuel prices, route distance, and vehicle availability to provide a fair, transparent price range. You can also accept bids directly from drivers."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Which cities does SastaLoad cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We currently operate in over 50 major cities across Pakistan, including Karachi, Lahore, Islamabad, Faisalabad, Multan, and Peshawar, covering all major national highways."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I track my shipment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Once your shipment is active, you'll receive a unique tracking ID. Enter this ID on our Tracking page to view real-time GPS location and estimated arrival time."
+        }
+      }]
     }
     </script>
     
@@ -109,9 +150,9 @@
           extend: {
             colors: {
               brand: {
-                DEFAULT: '#B3F000', // inDrive Lime
+                DEFAULT: '#B3F000',
                 hover: '#a2d600',
-                dark: '#1F2228', // Dark background
+                dark: '#1F2228',
               }
             },
             fontFamily: {
@@ -127,13 +168,12 @@
     <style>
       body {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
       body::-webkit-scrollbar {
         display: none;
       }
-      /* Smooth scrolling */
       html {
         scroll-behavior: smooth;
       }
@@ -151,7 +191,6 @@
           scrollbar-width: none;
       }
 
-      /* Scroll Reveal Animations */
       .reveal-on-scroll {
         opacity: 0;
         transform: translateY(30px);
@@ -164,7 +203,6 @@
         transform: translateY(0);
       }
 
-      /* Helper animations for Hero components */
       @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
       @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
       @keyframes slideRight { from { transform: translateX(20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
@@ -202,7 +240,6 @@
 </head>
   <body class="bg-white text-slate-900 antialiased selection:bg-brand selection:text-black">
     <div id="root"></div>
-    <!-- Entry point for Vite build -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

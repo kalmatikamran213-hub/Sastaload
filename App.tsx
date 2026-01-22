@@ -26,38 +26,54 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
 
-  // SEO Optimized Dynamic Title Management
+  // SEO Optimized Dynamic Title & Meta Description Management
   useEffect(() => {
+    let title = "SastaLoad - Online Truck Booking & Logistics Platform Pakistan";
+    let description = "Book verified trucks online in Pakistan with SastaLoad. Connect directly with drivers, get wholesale rates, and track shipments in real-time. Save up to 30%.";
+
     switch (currentPage) {
         case 'home': 
-            document.title = "SastaLoad - Online Truck Booking & Logistics Platform Pakistan"; 
+            title = "SastaLoad - Online Truck Booking & Logistics Platform Pakistan"; 
+            description = "The smartest way to move freight in Pakistan. Connect with 15,000+ verified drivers for reliable goods transport.";
             break;
         case 'about': 
-            document.title = "About SastaLoad | Best Logistics Company in Pakistan"; 
+            title = "About SastaLoad | Best Logistics Company in Pakistan"; 
+            description = "Learn how SastaLoad is digitizing Pakistan's supply chain. Our mission is to provide transparent, direct-to-driver freight booking.";
             break;
         case 'contact': 
-            document.title = "Contact SastaLoad Support | 24/7 Logistics Help"; 
+            title = "Contact SastaLoad Support | 24/7 Logistics Help"; 
+            description = "Get in touch with SastaLoad for support, enterprise quotes, or driver onboarding. We are available 24/7 to help your business move.";
             break;
         case 'login': 
-            document.title = "Login to SastaLoad | Shipper & Driver Portal"; 
+            title = "Login to SastaLoad | Shipper & Driver Portal"; 
+            description = "Access your SastaLoad dashboard to manage shipments, track vehicles, or view your driver earnings.";
             break;
         case 'signup': 
-            document.title = "Register | Join Pakistan's Largest Trucking Network"; 
+            title = "Register | Join Pakistan's Largest Trucking Network"; 
+            description = "Create a SastaLoad account today. Whether you are a business shipper or a fleet owner, start moving with transparency.";
             break;
         case 'trust': 
-            document.title = "Trust & Safety | Insured Freight Services"; 
+            title = "Trust & Safety | Insured Freight Services"; 
+            description = "Your cargo safety is our priority. Learn about our driver vetting process, secure payments, and transit insurance options.";
             break;
         case 'terms': 
-            document.title = "Terms of Service | SastaLoad Logistics"; 
+            title = "Terms of Service | SastaLoad Logistics"; 
+            description = "Read our terms and conditions for using the SastaLoad marketplace and transport facilitation services.";
             break;
         case 'privacy': 
-            document.title = "Privacy Policy | Data Protection"; 
+            title = "Privacy Policy | Data Protection"; 
+            description = "Understand how SastaLoad handles your personal and location data to ensure a secure logistics experience.";
             break;
         case 'admin':
-            document.title = "Admin Portal | SastaLoad";
+            title = "Admin Portal | SastaLoad";
+            description = "Internal management dashboard for SastaLoad operations.";
             break;
-        default: 
-            document.title = "SastaLoad - Book Verified Trucks Online";
+    }
+
+    document.title = title;
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+        metaDescription.setAttribute('content', description);
     }
   }, [currentPage]);
 
@@ -134,7 +150,6 @@ function App() {
         )}
       </main>
       
-      {/* Footer is typically hidden on login/signup in many apps, but keeping it here for consistency or simple navigation */}
       {currentPage !== 'login' && currentPage !== 'signup' && currentPage !== 'admin' && (
          <Footer onNavigate={handleNavigate} currentPage={currentPage} onOpenWaitlist={handleOpenWaitlist} />
       )}
