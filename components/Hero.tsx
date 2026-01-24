@@ -14,11 +14,11 @@ const Hero: React.FC<SharedProps> = ({ onOpenWaitlist }) => {
         <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-[100px] opacity-60 mix-blend-multiply"></div>
       </div>
 
-      <div className="max-w-[1800px] mx-auto px-4 lg:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Text Content */}
-          <div className="lg:col-span-7 space-y-6 lg:space-y-8 lg:pr-10 text-left">
+          <div className="lg:col-span-7 space-y-6 lg:space-y-8 lg:pr-10">
             
             <div className="inline-flex items-center gap-2 bg-white border border-slate-200 shadow-sm px-4 py-1.5 rounded-full animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <span className="relative flex h-2.5 w-2.5">
@@ -39,7 +39,7 @@ const Hero: React.FC<SharedProps> = ({ onOpenWaitlist }) => {
               </span>
             </h1>
             
-            <p className="text-lg lg:text-xl text-slate-600 max-w-2xl leading-relaxed font-medium animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200 text-left">
+            <p className="text-lg lg:text-xl text-slate-600 max-w-2xl leading-relaxed font-medium animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200">
               Eliminate middlemen and save up to 30% on cargo transport. SastaLoad connects you directly with verified fleet owners for transparent, reliable shipping across Pakistan.
             </p>
 
@@ -59,14 +59,14 @@ const Hero: React.FC<SharedProps> = ({ onOpenWaitlist }) => {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-6 pt-4 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-500 text-left">
+            <div className="flex flex-col gap-6 pt-4 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-500">
                {/* App Buttons */}
                <div className="flex items-center gap-3">
                    <button onClick={onOpenWaitlist} className="hover:opacity-80 transition-opacity">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download SastaLoad Logistics App on iOS App Store" className="h-10 lg:h-12" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download SastaLoad on App Store" className="h-10 lg:h-12" />
                    </button>
                    <button onClick={onOpenWaitlist} className="hover:opacity-80 transition-opacity">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Download SastaLoad Truck Booking App on Google Play Store" className="h-10 lg:h-12" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get SastaLoad on Google Play" className="h-10 lg:h-12" />
                    </button>
                </div>
 
@@ -74,13 +74,13 @@ const Hero: React.FC<SharedProps> = ({ onOpenWaitlist }) => {
                <div className="flex items-center gap-4 lg:gap-6">
                  <div className="flex -space-x-3 lg:-space-x-4">
                      {[1,2,3,4].map(i => (
-                         <img key={i} src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Verified Pakistani Truck Driver and Fleet Partner" className="w-8 h-8 lg:w-12 lg:h-12 rounded-full border-[3px] border-white shadow-md hover:scale-105 transition-transform" />
+                         <img key={i} src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="Verified Pakistani Truck Driver" className="w-8 h-8 lg:w-12 lg:h-12 rounded-full border-[3px] border-white shadow-md hover:scale-105 transition-transform" />
                      ))}
                      <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px] lg:text-xs border-[3px] border-white shadow-md relative z-10">
                        +15k
                      </div>
                  </div>
-                 <div className="text-left">
+                 <div>
                      <div className="flex items-center gap-1">
                          <Star className="w-4 h-4 lg:w-5 lg:h-5 text-orange-400 fill-orange-400" />
                          <span className="font-bold text-slate-900 text-base lg:text-lg">4.9/5</span>

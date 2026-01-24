@@ -18,10 +18,8 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Save to storage
     saveSubmission(STORAGE_KEYS.WAITLIST, { email });
 
-    // Simulate API call
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -30,8 +28,8 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={onClose}></div>
-      <div className="bg-white rounded-[32px] w-full max-w-md relative z-10 overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+      <div className="absolute inset-0 bg-slate-900/80" onClick={onClose}></div>
+      <div className="bg-white rounded-[32px] w-full max-w-md relative z-10 overflow-hidden shadow-2xl animate-in fade-in duration-200">
         
         <button 
           onClick={onClose}
@@ -52,32 +50,32 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
                     
                     <h3 className="text-2xl font-extrabold text-slate-900 mb-3">App Update in Progress</h3>
                     <p className="text-slate-500 font-medium leading-relaxed mb-8">
-                        The SastaLoad app is currently in an update phase and will be available soon with exciting new features.
+                        The SastaLoad app is currently in an update phase and will be available soon.
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="text-left">
-                            <label className="text-xs font-bold text-slate-900 uppercase ml-1 mb-1.5 block">Get Notified</label>
+                            <label className="text-xs font-bold text-slate-900 uppercase ml-1 mb-1.5 block tracking-wide">Get Notified</label>
                             <input 
                                 type="email" 
                                 required 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email address" 
-                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all font-medium text-slate-900 placeholder:text-slate-400"
+                                placeholder="Enter your email" 
+                                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 outline-none focus:ring-2 focus:ring-brand focus:bg-white transition-all font-medium text-slate-900 placeholder:text-slate-400"
                             />
                         </div>
                         <button 
                             type="submit" 
                             disabled={isSubmitting}
-                            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-slate-900/10 flex items-center justify-center gap-2"
+                            className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg flex items-center justify-center gap-2"
                         >
                             {isSubmitting ? <Loader2 className="animate-spin" /> : "Notify Me When Ready"}
                         </button>
                     </form>
                 </>
             ) : (
-                <div className="py-8">
+                <div className="py-8 animate-in zoom-in duration-300">
                     <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                         <CheckCircle size={40} className="text-green-600" />
                     </div>
