@@ -4,9 +4,9 @@ import { QuoteRequest, QuoteResult } from "../types";
 // Helper for local estimation if API fails or is unavailable
 const getFallbackQuote = (request: QuoteRequest): QuoteResult => {
   const weightVal = parseFloat(request.weight) || 1;
-  const cities: Record<string, number> = { 'karachi': 1, 'lahore': 2, 'islamabad': 3, 'multan': 4 };
   const originSeed = request.origin.toLowerCase().length;
   const destSeed = request.destination.toLowerCase().length;
+  // Deterministic random-like distance based on inputs
   const distanceKm = 300 + ((originSeed + destSeed) * 47) % 1200;
   
   const isHeavy = weightVal > 5;
@@ -33,8 +33,16 @@ const getFallbackQuote = (request: QuoteRequest): QuoteResult => {
 
 export const getSmartQuote = async (request: QuoteRequest): Promise<QuoteResult> => {
   try {
+    const apiKey = process.env.API_KEY;
+    
+    // Safety check: If API Key is missing (e.g. not set in Netlify), use fallback immediately
+    if (!apiKey || apiKey.trim() === '') {
+        console.warn("API Key is missing. Using local estimation fallback.");
+        return getFallbackQuote(request);
+    }
+
     // Strictly follow SDK initialization from system instructions
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey: apiKey });
     
     const prompt = `
       Act as a senior logistics analyst for the Pakistan market. 
